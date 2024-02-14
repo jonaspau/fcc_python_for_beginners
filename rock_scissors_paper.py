@@ -17,19 +17,25 @@ def get_choices():
 
 
 def check_win(player, computer):
-  print(f"You chose {player}, computer chose {computer}")
-  if player == computer:
-    return "Tie"
-  elif ((player == "rock" and computer == "scissors")
-        or (player == "scissors" and computer == "rock")):
-    return "Rock crushes scissors"
-  elif ((player == "rock" and computer == "paper")
-        or (player == "paper" and computer == "rock")):
-    return "Paper covers rock"
-  elif ((player == "scissors" and computer == "paper")
-        or (player == "paper" and computer == "scissors")):
-    return "Scissors cuts paper"
-  else:
-    return "invalid"
+    print(f"You chose {player}, computer chose {computer}")
+    if player == computer:
+        return "Tie"
+    elif player == "rock":
+        if computer == "scissors":
+            return "Rock crushes scissors"
+        else:
+            return "Paper covers rock"
+    elif player == "paper":
+        if computer == "scissors":
+            return "Scissors cuts paper"
+        else:
+            return "Paper covers rock"
+    elif player == "scissors":
+        if computer == "rock":
+            return "Rock crushes scissors"
+        else:
+            return "Scissors cuts paper"
+    else:
+        return "Invalid choice"
 
 main()
