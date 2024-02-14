@@ -2,18 +2,17 @@ import random
 
 
 def main():
-  choices = get_choices()
-  result = check_win(choices["player"], choices["computer"])
-  print(result)
+    choices = get_choices()
+    result = check_win(choices["player"], choices["computer"])
+    print(result)
 
 
 def get_choices():
-  player_choice = input("Enter a choice (rock, paper, scissors): ")
-  options = ["rock", "paper", "scissors"]
-  computer_choice = random.choice(options)
-  choices = {"player": player_choice, "computer": computer_choice}
-
-  return choices
+    player_choice = input("Enter a choice (rock, paper, scissors): ")
+    options = ["rock", "paper", "scissors"]
+    computer_choice = random.choice(options)
+    choices = {"player": player_choice, "computer": computer_choice}
+    return choices
 
 
 def check_win(player, computer):
