@@ -29,7 +29,7 @@ class Deck:
             {"rank": "Q", "value": 10},
             {"rank": "K", "value": 10},
             ]
-
+        
         for suit in suits:
             for rank in ranks:
                 self.cards.append(Card(suit, rank))
@@ -79,10 +79,10 @@ class Hand:
         return self.get_value() == 21
     
     def display(self, show_all_dealer_cards = False):
-
         print(f'''{"Dealer's" if self.dealer else "Your"} hand:''')
         for index, card in enumerate(self.cards):
-            if index == 0 and self.dealer and not show_all_dealer_cards and not self.is_blackjack:
+            if index == 0 and self.dealer \
+                and not show_all_dealer_cards and not self.is_blackjack():
                 print("hidden")
             else:
                 print(card)
@@ -162,7 +162,7 @@ class Game:
                 print("You busted. Dealer wins!")
                 return True
             elif dealer_hand.get_value() > 21:
-                print("Lucky bastard, dealer busted!")
+                print("Dealer busted. You win!")
                 return True
             elif player_hand.is_blackjack() and dealer_hand.is_blackjack:
                 print("Both players have a blackjack. Tie!")
@@ -175,12 +175,11 @@ class Game:
                 return True
         else:
             if player_hand.get_value() > dealer_hand.get_value():
-                print("Player wins!")
-                      
-            elif player_hand.get_value() < dealer_hand.get_value():
-                print("Dealer wins!")
+                print("Player wins!")   
+            elif player_hand.get_value() == dealer_hand.get_value():
+                print("It's a tie!")
             else:
-                print("It's a tie")
+                print("Dealer wins!")
             return True
         return False
 
