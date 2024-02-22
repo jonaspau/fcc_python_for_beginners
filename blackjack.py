@@ -83,7 +83,7 @@ class Hand:
         for index, card in enumerate(self.cards):
             if index == 0 and self.dealer \
                 and not show_all_dealer_cards and not self.is_blackjack():
-                print("hidden")
+                print("Hidden")
             else:
                 print(card)
 
